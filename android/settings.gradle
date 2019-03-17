@@ -1,0 +1,3 @@
+rootProject.name = 'lssReactNative'
+
+include ':app'
