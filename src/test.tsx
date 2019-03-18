@@ -14,8 +14,8 @@ export default ({ name, count = 10, onInc, onDec }: Props) => (
       Counter {name}: {count}
     </Text>
     <View>
-      <Button title="+1" onPress={onInc || (() => {})} />
-      <Button title="2-1" onPress={onDec || (() => {})} />
+      <Button title="+11" onPress={onInc || (() => {})} />
+      <Button title="21-10" onPress={onDec || (() => {})} />
     </View>
   </View>
 );
