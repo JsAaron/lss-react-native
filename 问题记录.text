@@ -4,3 +4,7 @@ https://www.jianshu.com/p/4a72211831ef?utm_campaign=maleskine&utm_content=note&u
 
 学习教程
 https://www.kancloud.cn/xiaodu/react/225114
+
+模拟器返回500错误
+The development server returned response error code: 500
+https://github.com/react-community/create-react-native-app/issues/721
