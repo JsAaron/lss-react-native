@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, Button } from 'react-native';
+import { Platform, View, Text, StyleSheet, Button } from 'react-native';
+
+console.log('...Platform', Platform.Version);
 
 export default class TextInANest extends Component {
   constructor(props) {
