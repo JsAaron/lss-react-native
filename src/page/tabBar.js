@@ -21,8 +21,8 @@ export default class MainPage extends Component {
             title="首页"
             titleStyle={styles.tabText}
             selectedTitleStyle={styles.selectedTabText}
-            renderIcon={() => <Icon name={'oneIcon|tb_Movie_o'} size={20} color={commonStyle.textGrayColor} />}
-            renderSelectedIcon={() => <Icon name={'oneIcon|tb_Movie_o'} size={20} color={commonStyle.black} />}
+            renderIcon={() => <Image style={styles.image} source={require('../assets/tabBar/home.png')} />}
+            renderSelectedIcon={() => <Image style={styles.image} source={require('../assets/tabBar/home-active.png')} />}
             onPress={() => this.setState({ selectedTab: 'Home' })}
           >
             <View style={styles.page1} />
@@ -32,8 +32,8 @@ export default class MainPage extends Component {
             title="优惠券"
             titleStyle={styles.tabText}
             selectedTitleStyle={styles.selectedTabText}
-            renderIcon={() => <Icon name={'oneIcon|tb_Movie_o'} size={20} color={commonStyle.textGrayColor} />}
-            renderSelectedIcon={() => <Icon name={'oneIcon|tb_Movie_o'} size={20} color={commonStyle.black} />}
+            renderIcon={() => <Image style={styles.image} source={require('../assets/tabBar/discount.png')} />}
+            renderSelectedIcon={() => <Image style={styles.image} source={require('../assets/tabBar/discount-active.png')} />}
             onPress={() => this.setState({ selectedTab: 'discount' })}
           >
             <View style={styles.page2} />
@@ -43,8 +43,8 @@ export default class MainPage extends Component {
             title="个人中心"
             titleStyle={styles.tabText}
             selectedTitleStyle={styles.selectedTabText}
-            renderIcon={() => <Icon name={'oneIcon|tb_Movie_o'} size={20} color={commonStyle.textGrayColor} />}
-            renderSelectedIcon={() => <Icon name={'oneIcon|tb_Movie_o'} size={20} color={commonStyle.black} />}
+            renderIcon={() => <Image style={styles.image} source={require('../assets/tabBar/personal.png')} />}
+            renderSelectedIcon={() => <Image style={styles.image} source={require('../assets/tabBar/personal-active.png')} />}
             onPress={() => this.setState({ selectedTab: 'personal' })}
           >
             <View style={styles.page1} />
@@ -62,6 +62,10 @@ const styles = StyleSheet.create({
   page1: {
     flex: 1,
     backgroundColor: 'red'
+  },
+  image:{
+    width:20,
+    height:20
   },
   page2: {
     flex: 1,
