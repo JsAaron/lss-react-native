@@ -1,5 +1,26 @@
 
-学习内容
+学习教程
+https://www.kancloud.cn/xiaodu/react/225114
+
+调试技巧
+https://www.jianshu.com/p/95166cfb727f
+
+vscode常用插件
+https://blog.csdn.net/qq_26585943/article/details/78987844
+关闭vscode自动引入包
+https://stackoverflow.com/questions/53279182/vscode-imports-import-console-requireconsole-automatically
+prettierrc配置
+https://segmentfault.com/a/1190000014613058
+http://blog.ixcv.com/posts/2899.html
+
+
+
+
+
+============================================
+===========相关技术点===============
+=============================================
+
 
 ts
 https://facebook.github.io/react-native/blog/2018/05/07/using-typescript-with-react-native

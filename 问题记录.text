@@ -2,21 +2,14 @@
 https://www.cnblogs.com/hellohello/p/8298281.html
 https://www.jianshu.com/p/4a72211831ef?utm_campaign=maleskine&utm_content=note&utm_medium=seo_notes&utm_source=recommendation
 
-学习教程
-https://www.kancloud.cn/xiaodu/react/225114
-
-模拟器返回500错误
+1.模拟器返回500错误
 The development server returned response error code: 500
 https://github.com/react-community/create-react-native-app/issues/721
 
-调试技巧
-https://www.jianshu.com/p/95166cfb727f
+2.错误：Warning: isMounted(…) is deprecated in plain Javascript Classes
+https://stackoverflow.com/questions/49789150/warning-ismounted-is-deprecated-in-plain-javascript-classes
 
-vscode常用插件
-https://blog.csdn.net/qq_26585943/article/details/78987844
-关闭vscode自动引入包
-https://stackoverflow.com/questions/53279182/vscode-imports-import-console-requireconsole-automatically
-prettierrc配置
-https://segmentfault.com/a/1190000014613058
-http://blog.ixcv.com/posts/2899.html
-
+3.react native 远程js调试出现卡顿并出现黄色提示的解决方法
+Remote debugger is in a background tab which may cause apps to perform slowly……
+提醒的大意是如果调试模式调用的浏览器标签处在后台运行，会造成执行缓慢。将该浏览器标签至于最前台运行或者置于单独的浏览器窗口中。
+解决方法很简单，别将浏览器最小化，一直显示在其他程序的最前面就行了。

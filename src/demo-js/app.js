@@ -2,12 +2,14 @@ import * as React from 'react';
 import { Component } from 'react';
 import { Provider } from 'react-redux';
 import { Router, Scene, Actions } from 'react-native-router-flux';
-import { View } from 'react-native';
+import { View, YellowBox } from 'react-native';
 
 import store from './redux';
 import homeApp from './page/home';
 import counterApp from './page/counter';
 import TodoApp from './page/todo';
+
+YellowBox.ignoreWarnings(['Warning: isMounted(...) is deprecated', 'Module RCTImageLoader']);
 
 const scenes = Actions.create(
   <Scene key="root">
