@@ -1,4 +1,4 @@
-const Constants = {
+const counterType = {
   INCREASE: 'INCREASE',
   DECREASE: 'DECREASE',
 
@@ -7,4 +7,4 @@ const Constants = {
   CHECKITEM: 'CHECKITEM'
 };
 
-export { Constants };
+export default counterType;

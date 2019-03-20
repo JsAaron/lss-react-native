@@ -1,5 +1,7 @@
 import counter from './counter';
+import todoApp from './todo';
 const reducers = {
-  counter
+  counter,
+  todoApp
 };
 export default reducers;

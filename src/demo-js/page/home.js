@@ -1,20 +1,18 @@
 /**
  * Created by guangqiang on 2017/11/19.
  */
+// import React, { Component } from 'react';
 import * as React from 'react';
 import { Component } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 
-interface Props {}
-interface State {}
-
-export default class LearningRedux extends Component<Props, State> {
+export default class LearningRedux extends Component {
   render() {
     return (
       <View style={styles.container}>
         <TouchableOpacity style={styles.box} onPress={() => Actions.counterApp()}>
-          <Text>计数器</Text>
+          <Text>CounterApp</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.box} onPress={() => Actions.todoApp()}>
           <Text>TodoApp</Text>

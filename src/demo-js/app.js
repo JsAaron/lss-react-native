@@ -2,23 +2,22 @@ import * as React from 'react';
 import { Component } from 'react';
 import { Provider } from 'react-redux';
 import { Router, Scene, Actions } from 'react-native-router-flux';
-import { View, StyleSheet, ViewStyle, StatusBar } from 'react-native';
+import { View } from 'react-native';
 
 import store from './redux';
-import homePage from './page/home';
-import CounterPage from './page/counter';
-
-interface Props {}
-interface State {}
+import homeApp from './page/home';
+import counterApp from './page/counter';
+import TodoApp from './page/todo';
 
 const scenes = Actions.create(
   <Scene key="root">
-    <Scene key="learnRedux" title="脸刷刷科技" initial={true} component={homePage} />
-    <Scene key="counterApp" title="计数" component={CounterPage} />
+    <Scene key="learnRedux" title="脸刷刷科技" initial={true} component={homeApp} />
+    <Scene key="counterApp" title="计数" component={counterApp} />
+    <Scene key="todoApp" title="输入输出1" component={TodoApp} />
   </Scene>
 );
 
-class App extends Component<Props, State> {
+class App extends Component {
   render() {
     return (
       <View style={{ flex: 1 }}>

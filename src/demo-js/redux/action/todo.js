@@ -1,19 +1,3 @@
-import { Constants } from '../constants';
-
-const CounterAction = {
-  increase() {
-    return {
-      type: Constants.INCREASE
-    };
-  },
-
-  decrease() {
-    return {
-      type: Constants.DECREASE
-    };
-  }
-};
-
 const TodoAction = {
   addItem(dispatch, value) {
     return dispatch({
@@ -36,4 +20,4 @@ const TodoAction = {
   }
 };
 
-export { CounterAction, TodoAction };
+export default TodoAction;

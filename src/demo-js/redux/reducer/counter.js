@@ -1,12 +1,12 @@
-import { Constants } from '../constants';
+import counterType from '../constants/counterType';
 
 const defaultState = 10;
 
 const reducer = (state = defaultState, action) => {
   switch (action.type) {
-    case Constants.INCREASE:
+    case counterType.INCREASE:
       return state + 1;
-    case Constants.DECREASE:
+    case counterType.DECREASE:
       return state - 1;
     default:
       return state;
