@@ -7,12 +7,17 @@
     "test": "jest"
   },
   "dependencies": {
+    "antd-mobile": "^2.2.9",
     "react": "16.5.0",
     "react-native": "^0.55.4",
     "react-native-router-flux": "^4.0.6",
+    "react-native-scrollable-tab-view": "^0.10.0",
+    "react-native-tab-navigator": "^0.3.4",
+    "react-native-vector-icons": "^6.4.2",
     "react-redux": "^6.0.1",
     "redux": "^4.0.1",
     "redux-actions": "^2.6.5",
+    "redux-promise-middleware": "^6.1.0",
     "redux-thunk": "^2.3.0"
   },
   "devDependencies": {
