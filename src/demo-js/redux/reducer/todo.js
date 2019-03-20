@@ -1,7 +1,7 @@
 /**
  * Created by guangqiang on 2017/11/21.
  */
-import counterType from '../constants/counterType';
+import TYPE from '../constants/todoType';
 
 const _addItem = (arr, value) => {
   let tempArr = [...arr];
@@ -27,11 +27,11 @@ const _checkItem = (arr, index) => {
 
 const todo = (state = [], action) => {
   switch (action.type) {
-    case counterType.ADDITEM:
+    case TYPE.ADDITEM:
       return _addItem(state, action.value);
-    case counterType.DELETEITEM:
+    case TYPE.DELETEITEM:
       return _deleteItem(state, action.index);
-    case counterType.CHECKITEM:
+    case TYPE.CHECKITEM:
       return _checkItem(state, action.index);
     default:
       return state;

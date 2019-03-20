@@ -1,10 +1,6 @@
 const counterType = {
   INCREASE: 'INCREASE',
-  DECREASE: 'DECREASE',
-
-  ADDITEM: 'ADDITEM',
-  DELETEITEM: 'DELETEITEM',
-  CHECKITEM: 'CHECKITEM'
+  DECREASE: 'DECREASE'
 };
 
 export default counterType;

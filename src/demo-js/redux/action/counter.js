@@ -1,15 +1,15 @@
-import counterType from '../constants/counterType';
+import TYPE from '../constants/counterType';
 
 const CounterAction = {
   increase() {
     return {
-      type: counterType.INCREASE
+      type: TYPE.INCREASE
     };
   },
 
   decrease() {
     return {
-      type: counterType.DECREASE
+      type: TYPE.DECREASE
     };
   }
 };

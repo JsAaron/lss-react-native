@@ -1,20 +1,22 @@
+import TYPE from '../constants/todoType';
+
 const TodoAction = {
   addItem(dispatch, value) {
     return dispatch({
-      type: Constants.ADDITEM,
+      type: TYPE.ADDITEM,
       value
     });
   },
 
   deleteItem(dispatch, index) {
     return dispatch({
-      type: Constants.DELETEITEM,
+      type: TYPE.DELETEITEM,
       index: index
     });
   },
   checkItem(dispatch, index) {
     return dispatch({
-      type: Constants.CHECKITEM,
+      type: TYPE.CHECKITEM,
       index: index
     });
   }
