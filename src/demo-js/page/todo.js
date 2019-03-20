@@ -59,19 +59,17 @@ class TodoApp extends Component {
     });
     return (
       <View style={styles.container}>
-        <ScrollView>
-          <Text style={{ marginVertical: 10, fontSize: 17, fontWeight: 'bold' }}>代办事项</Text>
-          <Text>{`你有 ${itemCount} 项代办事项`}</Text>
-          <TextInput
-            ref={ref => (this.textInput = ref)}
-            style={styles.textInput}
-            placeholder={'请输入代办事项'}
-            onSubmitEditing={value => this.submit(value)}
-            onChange={value => this.setState({ value })}
-            value={this.state.value}
-          />
-          {this.renderItem()}
-        </ScrollView>
+        <Text style={{ marginVertical: 10, fontSize: 17, fontWeight: 'bold' }}>代办事项</Text>
+        <Text>{`你有 ${itemCount} 项代办事项`}</Text>
+        <TextInput
+          ref={ref => (this.textInput = ref)}
+          style={styles.textInput}
+          placeholder={'请输入代办事项'}
+          onSubmitEditing={value => this.submit(value)}
+          onChange={value => this.setState({ value })}
+          value={this.state.value}
+        />
+        <ScrollView>{this.renderItem()}</ScrollView>
       </View>
     );
   }
