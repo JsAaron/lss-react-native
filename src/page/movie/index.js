@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View, Text } from 'react-native';
 import { connect } from 'react-redux';
-import { SegmentedControl } from 'antd-mobile';
+// import { SegmentedControl } from 'antd-mobile';
+import { commonStyle } from '../../utils';
+import Action from '../../redux/actions';
 
 class MovieList extends Component {
   constructor(props) {
@@ -16,7 +18,17 @@ class MovieList extends Component {
     };
   }
 
-  componentDidMount() {}
+  componentDidMount() {
+    console.log(1);
+    Promise.all([this.props.getMovieShowTimeList()]).then(response => {
+      console.log(response);
+      // this.setState({
+      //   showTimeList: response[0].value.ms,
+      //   comeingNewList: response[1].value.moviecomings,
+      //   attentionList: response[1].value.attention
+      // });
+    });
+  }
 
   onValueChange = value => {
     this.setState({ selectedTab: value });
@@ -25,16 +37,7 @@ class MovieList extends Component {
   render() {
     return (
       <View style={styles.containerStyle}>
-        <View style={styles.navBarStyle}>
-          <View style={styles.segContainer}>
-            <SegmentedControl
-              style={styles.tabStyle}
-              selectedIndex={0}
-              values={['正在热映', '即将上映']}
-              onValueChange={value => this.onValueChange(value)}
-            />
-          </View>
-        </View>
+        <Text>123</Text>
       </View>
     );
   }

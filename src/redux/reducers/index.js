@@ -3,11 +3,11 @@
  */
 import { combineReducers } from 'redux';
 import home from './home';
-// const rootReducer = combineReducers({
-//   home
-// })
+import movie from './movie';
 
-const reducers = {
-  home
-};
-export default reducers;
+const rootReducer = combineReducers({
+  home,
+  movie
+});
+
+export default rootReducer;

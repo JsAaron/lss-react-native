@@ -4,7 +4,7 @@
 // import { Toast, deepClone } from '../utils';
 export default (validatorMiddleware = extraArgument => {
   return ({ getState, dispatch }) => next => action => {
-    // console.log('action:', action)
+    console.log('action:', action);
 
     let actionObj = action || {};
     let payloadObj = actionObj.payload;

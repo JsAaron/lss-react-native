@@ -3,7 +3,7 @@ import { StyleSheet, View, Image, Text } from 'react-native';
 import TabNavigator from 'react-native-tab-navigator';
 import { commonStyle, Icon } from '../utils';
 
-// import Movie from './movie/movie';
+import Movie from './movie';
 
 export default class MainPage extends Component {
   constructor(props) {
@@ -18,14 +18,16 @@ export default class MainPage extends Component {
         <TabNavigator>
           <TabNavigator.Item
             selected={this.state.selectedTab === 'Home'}
-            title="首页"
+            title="电影"
             titleStyle={styles.tabText}
             selectedTitleStyle={styles.selectedTabText}
             renderIcon={() => <Image style={styles.image} source={require('../assets/tabBar/home.png')} />}
-            renderSelectedIcon={() => <Image style={styles.image} source={require('../assets/tabBar/home-active.png')} />}
+            renderSelectedIcon={() => (
+              <Image style={styles.image} source={require('../assets/tabBar/home-active.png')} />
+            )}
             onPress={() => this.setState({ selectedTab: 'Home' })}
           >
-            <View style={styles.page1} />
+            <Movie />
           </TabNavigator.Item>
           <TabNavigator.Item
             selected={this.state.selectedTab === 'discount'}
@@ -33,7 +35,9 @@ export default class MainPage extends Component {
             titleStyle={styles.tabText}
             selectedTitleStyle={styles.selectedTabText}
             renderIcon={() => <Image style={styles.image} source={require('../assets/tabBar/discount.png')} />}
-            renderSelectedIcon={() => <Image style={styles.image} source={require('../assets/tabBar/discount-active.png')} />}
+            renderSelectedIcon={() => (
+              <Image style={styles.image} source={require('../assets/tabBar/discount-active.png')} />
+            )}
             onPress={() => this.setState({ selectedTab: 'discount' })}
           >
             <View style={styles.page2} />
@@ -44,7 +48,9 @@ export default class MainPage extends Component {
             titleStyle={styles.tabText}
             selectedTitleStyle={styles.selectedTabText}
             renderIcon={() => <Image style={styles.image} source={require('../assets/tabBar/personal.png')} />}
-            renderSelectedIcon={() => <Image style={styles.image} source={require('../assets/tabBar/personal-active.png')} />}
+            renderSelectedIcon={() => (
+              <Image style={styles.image} source={require('../assets/tabBar/personal-active.png')} />
+            )}
             onPress={() => this.setState({ selectedTab: 'personal' })}
           >
             <View style={styles.page1} />
@@ -63,9 +69,9 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: 'red'
   },
-  image:{
-    width:20,
-    height:20
+  image: {
+    width: 20,
+    height: 20
   },
   page2: {
     flex: 1,
