@@ -8,6 +8,7 @@ import Action from '../../redux/actions';
 class MovieList extends Component {
   constructor(props) {
     super(props);
+    console.log(this.props);
     this.state = {
       refreshing: false,
       hasMore: true,
@@ -19,9 +20,9 @@ class MovieList extends Component {
   }
 
   componentDidMount() {
-    console.log(1);
+    console.log('componentDidMount');
     Promise.all([this.props.getMovieShowTimeList()]).then(response => {
-      console.log(response);
+      console.log('response数据', response);
       // this.setState({
       //   showTimeList: response[0].value.ms,
       //   comeingNewList: response[1].value.moviecomings,

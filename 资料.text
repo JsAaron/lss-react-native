@@ -31,7 +31,12 @@ http://cn.redux.js.org/docs/introduction/CoreConcepts.html
 https://www.jianshu.com/p/466639774e01
 https://www.jianshu.com/p/faa98d8bd3fa
 Redux与它的中间件：redux-thunk，redux-actions，redux-promise，redux-saga
-https://www.cnblogs.com/vvjiang/p/9505646.html
+    https://www.cnblogs.com/vvjiang/p/9505646.html
+使用redux-promise和redux-actions优化对redux的处理 原 
+    https://my.oschina.net/tbd/blog/1648601
+redux-promise-middleware
+https://docs.psb.codes/redux-promise-middleware/
+
 
 导航路由文档 react-native-router-flux
 https://github.com/aksonov/react-native-router-flux/blob/master/docs/API.md

@@ -31,9 +31,9 @@ class App extends Component {
 const initApp = () => {
   return (
     <Provider store={store}>
-      <App/>
+      <App />
     </Provider>
-  )
-}
+  );
+};
 
 export default initApp;

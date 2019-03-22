@@ -10,6 +10,7 @@ const action = {
 };
 
 const dispatch = name => dispatch => {
+  //数组，多个
   if (Array.isArray(name)) {
     let tempActionCreators = {};
     for (let i = 0; i < name.length; i++) {

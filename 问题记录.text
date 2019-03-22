@@ -13,3 +13,6 @@ https://stackoverflow.com/questions/49789150/warning-ismounted-is-deprecated-in-
 Remote debugger is in a background tab which may cause apps to perform slowly……
 提醒的大意是如果调试模式调用的浏览器标签处在后台运行，会造成执行缓慢。将该浏览器标签至于最前台运行或者置于单独的浏览器窗口中。
 解决方法很简单，别将浏览器最小化，一直显示在其他程序的最前面就行了。
+
+4 react native调试代码报错 unable to connect with remote debugger
+    清除谷歌浏览器缓存即可

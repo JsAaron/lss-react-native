@@ -4,8 +4,6 @@
 // import { Toast, deepClone } from '../utils';
 export default (validatorMiddleware = extraArgument => {
   return ({ getState, dispatch }) => next => action => {
-    console.log('action:', action);
-
     let actionObj = action || {};
     let payloadObj = actionObj.payload;
     let metaObj = action.meta || {};
@@ -23,6 +21,8 @@ export default (validatorMiddleware = extraArgument => {
     } catch (e) {
       return next(action);
     }
+
+    console.log('nextPayload nextPayload nextPayload');
 
     // if (nextPayload !== undefined) {
     //   nextAction = deepClone(action);
