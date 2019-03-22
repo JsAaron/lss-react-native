@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { StyleSheet, View, Text } from 'react-native';
 import { connect } from 'react-redux';
-// import { SegmentedControl } from 'antd-mobile';
+import { SegmentedControl } from 'antd-mobile';
 import { commonStyle } from '../../utils';
 import Action from '../../redux/actions';
 
@@ -20,14 +20,12 @@ class MovieList extends Component {
   }
 
   componentDidMount() {
-    console.log('componentDidMount');
-    Promise.all([this.props.getMovieShowTimeList()]).then(response => {
-      console.log('response数据', response);
-      // this.setState({
-      //   showTimeList: response[0].value.ms,
-      //   comeingNewList: response[1].value.moviecomings,
-      //   attentionList: response[1].value.attention
-      // });
+    Promise.all([this.props.getMovieShowTimeList(), this.props.getMovieComeingNewList()]).then(response => {
+      this.setState({
+        showTimeList: response[0].value.ms,
+        comeingNewList: response[1].value.moviecomings,
+        attentionList: response[1].value.attention
+      });
     });
   }
 
@@ -36,9 +34,10 @@ class MovieList extends Component {
   };
 
   render() {
+    console.log(555);
     return (
       <View style={styles.containerStyle}>
-        <Text>123</Text>
+        <Text>3333333</Text>
       </View>
     );
   }

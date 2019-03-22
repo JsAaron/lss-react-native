@@ -9,17 +9,32 @@ const action = {
   movie
 };
 
-const dispatch = name => dispatch => {
-  //数组，多个
-  if (Array.isArray(name)) {
-    let tempActionCreators = {};
-    for (let i = 0; i < name.length; i++) {
-      Object.assign(tempActionCreators, action[name[i]].actionCreators);
+// const dispatch = name => dispatch => {
+//   //数组，多个
+//   if (Array.isArray(name)) {
+//     let tempActionCreators = {};
+//     for (let i = 0; i < name.length; i++) {
+//       Object.assign(tempActionCreators, action[name[i]].actionCreators);
+//     }
+//     return bindActionCreators(tempActionCreators, dispatch);
+//   } else {
+//     return bindActionCreators(action[name].actionCreators, dispatch);
+//   }
+// };
+
+const dispatch = name => {
+  return dispatch => {
+    //数组，多个
+    if (Array.isArray(name)) {
+      let tempActionCreators = {};
+      for (let i = 0; i < name.length; i++) {
+        Object.assign(tempActionCreators, action[name[i]].actionCreators);
+      }
+      return bindActionCreators(tempActionCreators, dispatch);
+    } else {
+      return bindActionCreators(action[name].actionCreators, dispatch);
     }
-    return bindActionCreators(tempActionCreators, dispatch);
-  } else {
-    return bindActionCreators(action[name].actionCreators, dispatch);
-  }
+  };
 };
 
 export default { dispatch };
