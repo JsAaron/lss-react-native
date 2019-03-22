@@ -7,7 +7,6 @@
     "test": "jest"
   },
   "dependencies": {
-    "antd-mobile": "^2.2.9",
     "react": "16.5.0",
     "react-native": "^0.55.4",
     "react-native-router-flux": "^4.0.6",
@@ -27,6 +26,7 @@
     "@types/react": "^16.8.8",
     "@types/react-native": "^0.55.4",
     "babel-jest": "^24.5.0",
+    "babel-plugin-import": "^1.11.0",
     "babel-preset-react-native": "^2.1.0",
     "jest": "^24.5.0",
     "metro-react-native-babel-preset": "^0.53.1",

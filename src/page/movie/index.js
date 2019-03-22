@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
 import { StyleSheet, View, Text } from 'react-native';
 import { connect } from 'react-redux';
-import { SegmentedControl } from 'antd-mobile';
+// import { SegmentedControl } from 'antd-mobile';
 import { commonStyle } from '../../utils';
 import Action from '../../redux/actions';
+
+import ShowTimeList from './showTime/showTimeList'
+
 
 class MovieList extends Component {
   constructor(props) {
     super(props);
-    console.log(this.props);
     this.state = {
       refreshing: false,
       hasMore: true,
@@ -34,10 +36,13 @@ class MovieList extends Component {
   };
 
   render() {
-    console.log(555);
     return (
       <View style={styles.containerStyle}>
-        <Text>3333333</Text>
+        <View style={styles.navBarStyle}>
+          <View style={styles.segContainer}>
+          </View>
+        </View>
+        <ShowTimeList dataArr={this.state.showTimeList}/> 
       </View>
     );
   }
