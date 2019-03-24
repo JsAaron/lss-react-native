@@ -5,8 +5,7 @@ import { connect } from 'react-redux';
 import { commonStyle } from '../../utils';
 import Action from '../../redux/actions';
 
-import ShowTimeList from './showTime/showTimeList'
-
+import ShowTimeList from './showTime/showTimeList';
 
 class MovieList extends Component {
   constructor(props) {
@@ -22,7 +21,10 @@ class MovieList extends Component {
   }
 
   componentDidMount() {
-    Promise.all([this.props.getMovieShowTimeList(), this.props.getMovieComeingNewList()]).then(response => {
+    Promise.all([
+      this.props.getMovieShowTimeList(),
+      this.props.getMovieComeingNewList()
+    ]).then(response => {
       this.setState({
         showTimeList: response[0].value.ms,
         comeingNewList: response[1].value.moviecomings,
@@ -39,10 +41,9 @@ class MovieList extends Component {
     return (
       <View style={styles.containerStyle}>
         <View style={styles.navBarStyle}>
-          <View style={styles.segContainer}>
-          </View>
+          <View style={styles.segContainer} />
         </View>
-        <ShowTimeList dataArr={this.state.showTimeList}/> 
+        <ShowTimeList dataArr={this.state.showTimeList} />
       </View>
     );
   }
