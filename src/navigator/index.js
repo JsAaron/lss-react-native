@@ -4,10 +4,9 @@ import TabNavigator from 'react-native-tab-navigator';
 import { commonStyle } from '../utils';
 
 import MoviePage from './movie';
-import DiscountPage from './user/discount';
-import { Button, Provider, Toast } from '@ant-design/react-native';
+import DiscountApp from '../user/discount';
 
-export default class MainPage extends Component {
+export default class NavigatorApp extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -58,11 +57,7 @@ export default class MainPage extends Component {
             )}
             onPress={() => this.setState({ selectedTab: 'discount' })}
           >
-            <Provider>
-              <Button onPress={() => Toast.info('This is a toast tips')}>
-                Start52131
-              </Button>
-            </Provider>
+            <DiscountApp />
           </TabNavigator.Item>
           <TabNavigator.Item
             selected={this.state.selectedTab === 'personal'}
