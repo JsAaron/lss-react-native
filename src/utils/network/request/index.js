@@ -1,5 +1,4 @@
-// const md5 = require('./md5');
-import HttpUtils from './HttpUtils';
+const md5 = require('./md5');
 import { PATH } from '../../../redux/constants/urls';
 
 /**
@@ -79,21 +78,28 @@ export function ajax(params) {
         api: PATH.API
       };
     }
-    console.log('ajax_data', ajax_data);
 
-    fetch(params.url || PATH.COMMON, {
+    var formData = new FormData();
+    formData.append('username', 'Groucho');
+    formData.append('accountnum', 123456); //数字123456会被立即转换成字符串 "123456"
+
+    const send = {
       method: 'POST',
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/x-www-form-urlencoded'
       },
       body: JSON.stringify(ajax_data)
-    })
+    };
+
+    console.log(22, params.url);
+
+    fetch(params.url || PATH.COMMON, send)
       .then(response => {
         console.log('response', response);
       })
       .catch(err => {
-        console.log('er', err);
+        console.log('error', err);
       });
   });
 }
