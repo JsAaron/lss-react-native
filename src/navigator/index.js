@@ -2,9 +2,7 @@ import React, { Component } from 'react';
 import { StyleSheet, View, Image, Text } from 'react-native';
 import TabNavigator from 'react-native-tab-navigator';
 import { commonStyle } from '../utils';
-
-import MoviePage from './movie';
-import DiscountApp from '../user/discount';
+import DiscountApp from '../page/user/discount';
 
 export default class NavigatorApp extends Component {
   constructor(props) {
@@ -36,7 +34,7 @@ export default class NavigatorApp extends Component {
             )}
             onPress={() => this.setState({ selectedTab: 'Home' })}
           >
-            <MoviePage />
+            <DiscountApp />
           </TabNavigator.Item>
           <TabNavigator.Item
             selected={this.state.selectedTab === 'discount'}
@@ -78,7 +76,7 @@ export default class NavigatorApp extends Component {
             )}
             onPress={() => this.setState({ selectedTab: 'personal' })}
           >
-            <View style={styles.page1} />
+            <DiscountApp />
           </TabNavigator.Item>
         </TabNavigator>
       </View>

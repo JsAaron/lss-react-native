@@ -1,47 +1,71 @@
 /**
- * Created by guangqiang on 2017/8/30.
+ * 小程序配置文件
+ * http://yuewangt.yuqianshu.com/lcc/lcc 等同于 http://118.31.6.114:8080/lssSys
+ * http://yuewangt.yuqianshu.com/lcc/pay 等同于 http://118.31.6.114:8990/pay
+ *
  */
-const PATH = {
-  // 获取首页的图文列表
-  PICTURE_LIST: '/hp/idlist/0',
-  // 获取图文详情数据
-  PICTURE_DETAIL: '/hp/detail/',
-  PICTURE_GRID_LIST: '/hp/bymonth/',
 
-  MOVIE_LIST: '/movie/list/',
-  MOVIE_STORY: '/movie/${id}/story/1/0',
+const lcc = 'https://lccpay.joylifepay.com/lssSys';
+const pay = 'https://lcc.joylifepay.com/pay';
+const serverImageUrl = 'https://lccpay.joylifepay.com/lssSys/xcx/';
 
-  // 时光网数据
-  MOVIE_SHOWTIME: '/Showtime/LocationMovies.api?locationId=290',
-  MOVIE_COMEING_NEW: '/Movie/MovieComingNew.api?locationId=290',
-  MOVIE_DETAIL: '/movie/detail.api?locationId=290',
-  MOVIE_COMMENT_LIST: '/movie/hotComment.api',
-  MOVIE_MINI_COMMENT_LIST: '/Showtime/HotMovieComments.api',
-  MOVIE_PLUS_COMMENT_LIST: '/Movie/HotLongComments.api',
-  MOVIE_TRAILER_LIST: '/Movie/Video.api',
-  MOVIE_ACTOR_LIST: '/Movie/MovieCreditsWithTypes.api',
-  MOVIE_PICTURE_LIST: '/Movie/ImageAll.api',
+let PATH = {
+  API: 'appaccount/appbase',
+  /**
+   * 获取openid请求
+   * openIdUrl
+   */
+  OPENID: `${lcc}/loginAction!weixingcode2session.ilf`,
+  /**
+   * 二维码请求地址
+   * 分享
+   * shareQrCodeUrl
+   */
+  SHAREQRCODE: `${lcc}/loginAction!weixingcodeImage.ilf`,
+  /**
+   * 二维码请求地址
+   * 支付
+   * payQrCodeUrl
+   */
+  PAYQRCODE: `${lcc}/loginAction!weixingSolidImage.ilf`,
+  /**
+   * 人脸识别设备请求
+   * deviceUrl
+   */
+  DEVICE: `${pay}/smallProgram`,
+  /**
+   * 上传文件
+   * uploadFile
+   */
+  UPLOADFILE: `${lcc}/loginAction!uploadFile.ilf`,
+  /**
+   * 普通请求
+   * requestUrl
+   * common
+   */
+  COMMON: `${lcc}/loginAction!currency.ilf`,
+  /**
+   * 加密请求
+   */
+  MD5COMMON: `${lcc}/lssSys/loginAction!des.ilf`,
+  /**
+   * 服务器图片
+   * serverImageUrl
+   */
+  SERVERIMAGE: serverImageUrl,
+  /**
+   * 基础地址
+   * baseUrl
+   */
+  BASE: lcc
+};
 
-  MUSIC_ID_LIST: '/music/idlist/0',
-  MUSIC_DETAIL: '/music/detail/',
-  MUSIC_XIAMI_MUSIC: '/run?song=http://www.xiami.com/song/',
-  MUSIC_LIST: '/music/bymonth/',
-
-  READING_BANNER: '/reading/carousel',
-  READING_BANNER_CONTENT: '/reading/carousel/',
-  READING_ARTICLE_LIST: '/reading/index',
-  READING_ESSAY_DETAIL: '/essay/',
-  READING_SERIAL_DETAIL: '/serialcontent/',
-  READING_QUESTION_DETAIL: '/question/',
-  READING_COMMENT_LIST: '/comment/praiseandtime/',
-  READING_ARTICLE_CATE_LIST: '/bymonth/',
-
-  // 获取find模块数据
-  FIND: '/xxx/xxx',
-  // 首页H5
-  HOME_MSITE: '/xxx/xxxx',
-  // 打点
-  VENILOG: '/v2/book/1220562'
+/**
+ * 获取图标地址
+ * getAgentlogoUrl
+ */
+PATH.GETAGENTLOGOURL = function(logoUrl) {
+  return lcc + logoUrl;
 };
 
 export { PATH };

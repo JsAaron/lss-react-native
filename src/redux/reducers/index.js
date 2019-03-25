@@ -2,12 +2,10 @@
  * Created by guangqiang on 2017/8/21.
  */
 import { combineReducers } from 'redux';
-import home from './home';
-import movie from './movie';
+import userDiscount from './user/discount';
 
 const rootReducer = combineReducers({
-  home,
-  movie
+  userDiscount
 });
 
 export default rootReducer;

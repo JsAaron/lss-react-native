@@ -34,7 +34,20 @@ const beginTime = {
   }
 };
 
-const monthList = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+const monthList = [
+  'Jan',
+  'Feb',
+  'Mar',
+  'Apr',
+  'May',
+  'Jun',
+  'Jul',
+  'Aug',
+  'Sep',
+  'Oct',
+  'Nov',
+  'Dec'
+];
 
 const logEventType = {
   enterPage: 3001,
@@ -60,4 +73,11 @@ const sharePlatform = {
   FACEBOOK: 5
 };
 
-export { articleType, beginTime, monthList, logEventType, ApiSource, sharePlatform };
+export {
+  articleType,
+  beginTime,
+  monthList,
+  logEventType,
+  ApiSource,
+  sharePlatform
+};

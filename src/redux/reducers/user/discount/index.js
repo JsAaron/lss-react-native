@@ -1,12 +1,8 @@
-/**
- * Created by guangqiang on 2017/9/6.
- */
 import { combineReducers } from 'redux';
-
-import movieList from './movieList';
+import list from './list';
 
 const reducer = combineReducers({
-  movieList
+  list
 });
 
 export default reducer;
