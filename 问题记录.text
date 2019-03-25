@@ -16,3 +16,6 @@ Remote debugger is in a background tab which may cause apps to perform slowly…
 
 4 react native调试代码报错 unable to connect with remote debugger
     清除谷歌浏览器缓存即可
+
+5 ant-design-mobile 安装问题
+https://github.com/ant-design/ant-design-mobile/issues/654

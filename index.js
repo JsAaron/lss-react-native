@@ -7,6 +7,5 @@ import { AppRegistry } from 'react-native';
 import App from './src/app';
 import { name as appName } from './app.json';
 
-console.ignoredYellowBox = ['Warning: Failed propType: SceneView'];
-
+console.ignoredYellowBox = ['Remote debugger'];
 AppRegistry.registerComponent(appName, () => App);

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { StyleSheet, View, Text } from 'react-native';
 import { connect } from 'react-redux';
-// import { SegmentedControl } from 'antd-mobile';
 import { commonStyle } from '../../utils';
 import Action from '../../redux/actions';
 
