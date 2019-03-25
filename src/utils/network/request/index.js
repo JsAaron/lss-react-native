@@ -1,5 +1,5 @@
 const md5 = require('./md5');
-import { PATH } from '../../../redux/constants/urls';
+import { PATH } from '../../../config/urls';
 
 /**
  * 字段排序
