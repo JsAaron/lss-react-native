@@ -4,11 +4,10 @@
 
 /** 公共样式表 **/
 
-import {Platform} from 'react-native'
-import deviceInfo from './deviceInfo'
+import { Platform } from 'react-native';
+import deviceInfo from './deviceInfo';
 
 export const commonStyle = {
-
   /** color **/
   // 常用颜色
   red: '#FF0000',
@@ -79,7 +78,8 @@ export const commonStyle = {
   // 导航栏的高度
   navHeight: Platform.OS === 'ios' ? (deviceInfo.isIphoneX ? 88 : 64) : 56,
   // 导航栏顶部的状态栏高度
-  navStatusBarHeight: Platform.OS === 'ios' ? (deviceInfo.isIphoneX ? 44 : 20) : 0,
+  navStatusBarHeight:
+    Platform.OS === 'ios' ? (deviceInfo.isIphoneX ? 44 : 20) : 0,
   // 导航栏除掉状态栏的高度
   navContentHeight: Platform.OS === 'ios' ? 44 : 56,
   // tabBar的高度
@@ -121,6 +121,5 @@ export const commonStyle = {
   around: 'space-around',
   between: 'space-between',
   center: 'center',
-  row: 'row',
-
-}
+  row: 'row'
+};
