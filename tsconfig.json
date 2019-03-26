@@ -1,13 +1,13 @@
 {
   "compilerOptions": {
-    "strictNullChecks": true,
+    "importHelpers": true,
+    "target": "es2015",
+    "jsx": "react-native",
+    "noEmit": true,
+    "allowSyntheticDefaultImports": true, //取消import * as React from 'react' =》import React from 'react'
     "moduleResolution": "node",
-    "jsx": "preserve",
-    "noUnusedParameters": true,
-    "noUnusedLocals": true,
-    "allowSyntheticDefaultImports": true,
-    "target": "es6",
-    "noImplicitAny": true
+    "module": "ESNext"
+
     /* Basic Options */
     // "target": "es5", /* Specify ECMAScript target version: 'ES3' (default), 'ES5', 'ES2015', 'ES2016', 'ES2017','ES2018' or 'ESNEXT'. */
     // "module": "commonjs", /* Specify module code generation: 'none', 'commonjs', 'amd', 'system', 'umd', 'es2015', or 'ESNext'. */
