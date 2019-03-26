@@ -26,9 +26,7 @@ class DiscountApp extends React.Component<any, any> {
     });
   }
 
-  onSearchSubmit(e) {
-    console.log(e);
-  }
+  onSearchSubmit(e) {}
 
   onSearchBar(value) {
     console.log(value);

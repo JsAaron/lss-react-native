@@ -3,6 +3,7 @@ import { StyleSheet, View, Image, Text } from 'react-native';
 import TabNavigator from 'react-native-tab-navigator';
 import { commonStyle } from '../utils';
 import DiscountApp from '../page/user/discount';
+import HomeApp from '../page/user/home';
 
 interface State {}
 interface Props {}
@@ -11,7 +12,7 @@ export default class NavigatorApp extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
     this.state = {
-      selectedTab: 'discount'
+      selectedTab: 'home'
     };
   }
   render() {
@@ -35,9 +36,9 @@ export default class NavigatorApp extends React.Component<Props, State> {
                 source={require('../assets/tabBar/home-active.png')}
               />
             )}
-            onPress={() => this.setState({ selectedTab: 'Home' })}
+            onPress={() => this.setState({ selectedTab: 'home' })}
           >
-            <DiscountApp />
+            <HomeApp />
           </TabNavigator.Item>
           <TabNavigator.Item
             selected={this.state.selectedTab === 'discount'}
