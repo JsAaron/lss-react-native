@@ -11,20 +11,26 @@ import {
   Lightbox
 } from 'react-native-router-flux';
 
+//底部导航
 import NavigatorApp from './navigator';
+
+//==========================
+//        user端
+//==========================
+import UserLoginApp from './page/user/register/login';
 
 const scenes = Actions.create(
   <Scene key="root">
     <Modal key="modal" hideNavBar>
+      {/* 用户注册 */}
+      <Stack key="userRgister" titleStyle={{ alignSelf: 'center' }}>
+        <Scene component={UserLoginApp} title="用户注册" />
+      </Stack>
+
+      {/* 内容 */}
       <Lightbox key="lightbox" hideNavBar={true}>
         <Stack key="init" back>
-          <Scene
-            key="main"
-            initial
-            back={false}
-            hideNavBar
-            component={NavigatorApp}
-          />
+          <Scene key="main" hideNavBar component={NavigatorApp} />
         </Stack>
       </Lightbox>
     </Modal>

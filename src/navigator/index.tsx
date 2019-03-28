@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, View, Image, Text } from 'react-native';
 import TabNavigator from 'react-native-tab-navigator';
-import { commonStyle } from '../utils';
+import { commonStyle } from '../config/commonStyle';
 import DiscountApp from '../page/user/discount';
 import HomeApp from '../page/user/home';
 
@@ -27,13 +27,13 @@ export default class NavigatorApp extends React.Component<Props, State> {
             renderIcon={() => (
               <Image
                 style={styles.image}
-                source={require('../assets/tabBar/home.png')}
+                source={require('../assets/images/tabBar/home.png')}
               />
             )}
             renderSelectedIcon={() => (
               <Image
                 style={styles.image}
-                source={require('../assets/tabBar/home-active.png')}
+                source={require('../assets//images/tabBar/home-active.png')}
               />
             )}
             onPress={() => this.setState({ selectedTab: 'home' })}
@@ -48,13 +48,13 @@ export default class NavigatorApp extends React.Component<Props, State> {
             renderIcon={() => (
               <Image
                 style={styles.image}
-                source={require('../assets/tabBar/discount.png')}
+                source={require('../assets/images/tabBar/discount.png')}
               />
             )}
             renderSelectedIcon={() => (
               <Image
                 style={styles.image}
-                source={require('../assets/tabBar/discount-active.png')}
+                source={require('../assets/images/tabBar/discount-active.png')}
               />
             )}
             onPress={() => this.setState({ selectedTab: 'discount' })}
@@ -69,13 +69,13 @@ export default class NavigatorApp extends React.Component<Props, State> {
             renderIcon={() => (
               <Image
                 style={styles.image}
-                source={require('../assets/tabBar/personal.png')}
+                source={require('../assets/images/tabBar/personal.png')}
               />
             )}
             renderSelectedIcon={() => (
               <Image
                 style={styles.image}
-                source={require('../assets/tabBar/personal-active.png')}
+                source={require('../assets/images/tabBar/personal-active.png')}
               />
             )}
             onPress={() => this.setState({ selectedTab: 'personal' })}

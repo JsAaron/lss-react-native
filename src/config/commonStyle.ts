@@ -5,7 +5,7 @@
 /** 公共样式表 **/
 
 import { Platform } from 'react-native';
-import deviceInfo from './deviceInfo';
+import deviceInfo from '../utils/deviceInfo';
 
 export const commonStyle = {
   /** color **/
@@ -33,7 +33,7 @@ export const commonStyle = {
   // 默认黑色字体颜色
   textBlockColor: '#262626',
   // 默认背景颜色
-  bgColor: '#E6E6E6',
+  bgColor: '#f8f8f8',
   // 默认分割线颜色
   lineColor: '#E6E6E6',
   // 默认placeholder颜色
