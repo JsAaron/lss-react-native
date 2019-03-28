@@ -7,7 +7,7 @@
 import { Platform } from 'react-native';
 import deviceInfo from '../utils/deviceInfo';
 
-export const commonStyle = {
+ const commonStyle = {
   /** color **/
   // 常用颜色
   red: '#FF0000',
@@ -123,3 +123,6 @@ export const commonStyle = {
   center: 'center',
   row: 'row'
 };
+
+
+export default commonStyle

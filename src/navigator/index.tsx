@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, View, Image, Text } from 'react-native';
 import TabNavigator from 'react-native-tab-navigator';
-import { commonStyle } from '../config/commonStyle';
+import commonStyle from '../config/commonStyle';
 import DiscountApp from '../page/user/discount';
 import HomeApp from '../page/user/home';
 
