@@ -1,6 +1,6 @@
 const md5 = require('./md5');
 import { PATH } from '../../../config/urls';
-import { any } from 'prop-types';
+import { dateFormat } from '../../lang'
 
 /**
  * 字段排序
@@ -15,14 +15,13 @@ const objKeySort = arys => {
 };
 
 
+
 /**
  * 返回通用校验字段
  */
 export function processData(data: any) {
-
-  let d: any = new Date()
-  data.seq = Date.parse(d) + '';
-  // data.timesamp = d.Format('yyyyMMddhhmmss');
+  data.seq = Date.parse(new Date().toString()) + '';
+  data.timesamp = dateFormat('yyyyMMddhhmmss')
   data = objKeySort(data);
   var md5Str = '';
   var d2 = new Array();
@@ -31,8 +30,8 @@ export function processData(data: any) {
       md5Str += '&' + v + '=' + data[v];
     }
   }
-  var sign = md5.hexMD5(data.seq );
-  // var sign = md5.hexMD5(data.seq + data.timesamp);
+  var sign = md5.hexMD5(data.seq);
+  var sign = md5.hexMD5(data.seq + data.timesamp);
   data.sign = sign;
   return data;
 }
@@ -95,10 +94,12 @@ export function ajax(params) {
         console.log('xmlRequest',xmlRequest)
         resolve(xmlRequest.responseText);
       } else {
+        console.log('请求失败！')
         reject("请求失败！");
       }
     }
-    xmlRequest.send(null)
+    console.log('ajax_data',ajax_data)
+    xmlRequest.send(ajax_data)
   });
 }
 
@@ -124,7 +125,7 @@ function serviceMd5(params) {
 function unifyAjax(params) {
   return new Promise((resolve, reject) => {
     ajax(params).then(response => {
-      console.log(111111,response)
+      console.log(111111, response)
       // if (response.data.retCode == "0000" ) {
       //   //统一判断成功
       //   resolve(response);
