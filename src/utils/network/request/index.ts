@@ -83,23 +83,23 @@ export function ajax(params) {
       };
     }
 
-    var xmlRequest = new XMLHttpRequest();
-    xmlRequest.open("POST", params.url || PATH.COMMON, true);
-    // xmlRequest.responseType = "blob";//这里是关键，它指明返回的数据的类型是二进制
-    xmlRequest.onreadystatechange = function (e) {
-      if (xmlRequest.readyState !== 4) {
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", params.url || PATH.COMMON, true);
+    // xhr.responseType = "blob";//这里是关键，它指明返回的数据的类型是二进制
+    xhr.onreadystatechange = function (e) {
+      if (xhr.readyState !== 4) {
         return;
       }
-      if (xmlRequest.status === 200) {
-        console.log('xmlRequest',xmlRequest)
-        resolve(xmlRequest.responseText);
+      if (xhr.status === 200) {
+        console.log('xhr',xhr)
+        resolve(xhr.responseText);
       } else {
         console.log('请求失败！')
         reject("请求失败！");
       }
     }
     console.log('ajax_data',ajax_data)
-    xmlRequest.send(ajax_data)
+    xhr.send(ajax_data)
   });
 }
 
