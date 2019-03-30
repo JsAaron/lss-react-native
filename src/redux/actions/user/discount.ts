@@ -1,6 +1,6 @@
 import { createAction } from 'redux-actions';
 import type from '../../constants/actionType';
-import { ajaxFetch } from '../../../utils/network/request';
+import { md5Ajax } from '../../../utils/network/request';
 
 const data = {
   agentid: '708000719740',
@@ -18,7 +18,7 @@ const request = {
 };
 
 const showList = params =>
-  ajaxFetch({
+  md5Ajax({
     funcode: '0072',
     encrypt: { data },
     request

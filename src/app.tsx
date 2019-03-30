@@ -23,9 +23,9 @@ const scenes = Actions.create(
   <Scene key="root">
     <Modal key="modal" hideNavBar>
       {/* 用户注册 */}
-      <Stack key="userRgister" titleStyle={{ alignSelf: 'center' }}>
+      {/* <Stack key="userRgister" titleStyle={{ alignSelf: 'center' }}>
         <Scene component={UserLoginApp} title="用户注册" />
-      </Stack>
+      </Stack> */}
 
       {/* 内容 */}
       <Lightbox key="lightbox" hideNavBar={true}>

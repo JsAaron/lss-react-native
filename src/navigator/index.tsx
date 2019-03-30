@@ -12,7 +12,7 @@ export default class NavigatorApp extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
     this.state = {
-      selectedTab: 'home'
+      selectedTab: 'discount'
     };
   }
   render() {

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Alert, View } from 'react-native';
+import {  View } from 'react-native';
 import { SearchBar } from '@ant-design/react-native';
 import Action from '../../../redux/actions';
 import { connect } from 'react-redux';
@@ -14,7 +14,7 @@ import { connect } from 'react-redux';
 class DiscountApp extends React.Component<any, any> {
   constructor(prop: any) {
     super(prop);
-    console.log('props', this.props);
+    // console.log('props', this.props);
     this.state = {
       searchValue: ''
     };

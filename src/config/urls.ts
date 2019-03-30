@@ -47,7 +47,7 @@ let PATH = {
   /**
    * 加密请求
    */
-  MD5COMMON: `${lcc}/lssSys/loginAction!des.ilf`,
+  MD5COMMON: `${lcc}/lssSys/loginAction!desapp.ilf`,
   /**
    * 服务器图片
    * serverImageUrl

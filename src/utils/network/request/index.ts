@@ -1,5 +1,6 @@
 const md5 = require('./md5');
 import { PATH } from '../../../config/urls';
+import { any } from 'prop-types';
 
 /**
  * 字段排序
@@ -13,12 +14,15 @@ const objKeySort = arys => {
   return newObj;
 };
 
+
 /**
  * 返回通用校验字段
  */
-export function processData(data) {
-  data.seq = Date.parse(new Date()) + '';
-  data.timesamp = new Date().Format('yyyyMMddhhmmss');
+export function processData(data: any) {
+
+  let d: any = new Date()
+  data.seq = Date.parse(d) + '';
+  // data.timesamp = d.Format('yyyyMMddhhmmss');
   data = objKeySort(data);
   var md5Str = '';
   var d2 = new Array();
@@ -27,7 +31,8 @@ export function processData(data) {
       md5Str += '&' + v + '=' + data[v];
     }
   }
-  var sign = md5.hexMD5(data.seq + data.timesamp);
+  var sign = md5.hexMD5(data.seq );
+  // var sign = md5.hexMD5(data.seq + data.timesamp);
   data.sign = sign;
   return data;
 }
@@ -39,7 +44,7 @@ export function processData(data) {
  * @returns {Promise.<*>}
  */
 const timeoutFetch = (original_fetch, timeout = 30000) => {
-  let timeoutBlock = () => {};
+  let timeoutBlock = () => { };
   let timeout_promise = new Promise((resolve, reject) => {
     timeoutBlock = () => {
       // 请求超时处理
@@ -79,28 +84,21 @@ export function ajax(params) {
       };
     }
 
-    var formData = new FormData();
-    formData.append('username', 'Groucho');
-    formData.append('accountnum', 123456); //数字123456会被立即转换成字符串 "123456"
-
-    const send = {
-      method: 'POST',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/x-www-form-urlencoded'
-      },
-      body: JSON.stringify(ajax_data)
-    };
-
-    console.log(22, params.url);
-
-    fetch(params.url || PATH.COMMON, send)
-      .then(response => {
-        console.log('response', response);
-      })
-      .catch(err => {
-        console.log('error', err);
-      });
+    var xmlRequest = new XMLHttpRequest();
+    xmlRequest.open("POST", params.url || PATH.COMMON, true);
+    // xmlRequest.responseType = "blob";//这里是关键，它指明返回的数据的类型是二进制
+    xmlRequest.onreadystatechange = function (e) {
+      if (xmlRequest.readyState !== 4) {
+        return;
+      }
+      if (xmlRequest.status === 200) {
+        console.log('xmlRequest',xmlRequest)
+        resolve(xmlRequest.responseText);
+      } else {
+        reject("请求失败！");
+      }
+    }
+    xmlRequest.send(null)
   });
 }
 
@@ -117,6 +115,29 @@ function serviceMd5(params) {
   });
 }
 
+
+/**
+ * 统一ajax调用
+ * 统一返回的判断
+ * items.data.retCode === "0000"
+ */
+function unifyAjax(params) {
+  return new Promise((resolve, reject) => {
+    ajax(params).then(response => {
+      console.log(111111,response)
+      // if (response.data.retCode == "0000" ) {
+      //   //统一判断成功
+      //   resolve(response);
+      // } else {
+      //   reject(response);
+      // }
+    }).catch(errResponse => {
+      // reject(errResponse);
+    });
+  });
+}
+
+
 /**
  * 带md5的统一请求处理
  * md5Config= ajaxConfig = {
@@ -128,7 +149,7 @@ function serviceMd5(params) {
  * return
  *  resolve reject
  */
-const ajaxFetch = params => {
+function md5Ajax(params) {
   return new Promise((resolve, reject) => {
     const funcode = params.funcode;
 
@@ -138,12 +159,32 @@ const ajaxFetch = params => {
         //请求参数,合并funcode
         funcode
       })
-    )
-      .then(md5Response => {
-        console.log(123, md5Response);
-      })
-      .catch(() => {});
+    ).then(md5Response => {
+      //合并md5Response.data参数
+      let ajaxData = {
+        data: Object.assign({}, JSON.parse(md5Response), { funcode })
+      };
+
+      //混入请求的数据
+      if (params.request) {
+        //request的参数，可以覆盖md5Response.data数据
+        Object.assign(ajaxData.data, params.request);
+      }
+
+      //发送正式请求
+      unifyAjax(ajaxData).then(response => {
+        console.log(111, response)
+        //返回对象合集
+        if (params.responseType === "[array object]") {
+          // resolve([md5Response, response]);
+        } else {
+          //默认返回请求的
+          resolve(response);
+        }
+      }).catch(reject);
+
+    }).catch(() => { });
   });
 };
 
-export { ajaxFetch };
+export { md5Ajax, unifyAjax };
