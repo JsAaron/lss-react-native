@@ -1,6 +1,6 @@
 const md5 = require('./md5');
 import { PATH } from '../../../config/urls';
-import { dateFormat } from '../../lang'
+import { dateFormat } from '../../lang';
 
 /**
  * 字段排序
@@ -14,14 +14,12 @@ const objKeySort = arys => {
   return newObj;
 };
 
-
-
 /**
  * 返回通用校验字段
  */
 export function processData(data: any) {
   data.seq = Date.parse(new Date().toString()) + '';
-  data.timesamp = dateFormat('yyyyMMddhhmmss')
+  data.timesamp = dateFormat('yyyyMMddhhmmss');
   data = objKeySort(data);
   var md5Str = '';
   var d2 = new Array();
@@ -43,7 +41,7 @@ export function processData(data: any) {
  * @returns {Promise.<*>}
  */
 const timeoutFetch = (original_fetch, timeout = 30000) => {
-  let timeoutBlock = () => { };
+  let timeoutBlock = () => {};
   let timeout_promise = new Promise((resolve, reject) => {
     timeoutBlock = () => {
       // 请求超时处理
@@ -82,24 +80,21 @@ export function ajax(params) {
         api: PATH.API
       };
     }
-
     var xhr = new XMLHttpRequest();
-    xhr.open("POST", params.url || PATH.COMMON, true);
-    // xhr.responseType = "blob";//这里是关键，它指明返回的数据的类型是二进制
-    xhr.onreadystatechange = function (e) {
+    xhr.open('POST', params.url || PATH.COMMON, true);
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    xhr.onreadystatechange = function(e) {
       if (xhr.readyState !== 4) {
         return;
       }
       if (xhr.status === 200) {
-        console.log('xhr',xhr)
-        resolve(xhr.responseText);
+        resolve(xhr._response);
       } else {
-        console.log('请求失败！')
-        reject("请求失败！");
+        console.log('请求失败！');
+        reject('请求失败！');
       }
-    }
-    console.log('ajax_data',ajax_data)
-    xhr.send(ajax_data)
+    };
+    xhr.send(JSON.stringify(ajax_data));
   });
 }
 
@@ -116,7 +111,6 @@ function serviceMd5(params) {
   });
 }
 
-
 /**
  * 统一ajax调用
  * 统一返回的判断
@@ -124,20 +118,21 @@ function serviceMd5(params) {
  */
 function unifyAjax(params) {
   return new Promise((resolve, reject) => {
-    ajax(params).then(response => {
-      console.log(111111, response)
-      // if (response.data.retCode == "0000" ) {
-      //   //统一判断成功
-      //   resolve(response);
-      // } else {
-      //   reject(response);
-      // }
-    }).catch(errResponse => {
-      // reject(errResponse);
-    });
+    ajax(params)
+      .then(response => {
+        response = JSON.parse(response);
+        if (response.retCode == '0000') {
+          //统一判断成功
+          resolve(response);
+        } else {
+          reject(response);
+        }
+      })
+      .catch(errResponse => {
+        reject(JSON.parse(errResponse));
+      });
   });
 }
-
 
 /**
  * 带md5的统一请求处理
@@ -160,32 +155,35 @@ function md5Ajax(params) {
         //请求参数,合并funcode
         funcode
       })
-    ).then(md5Response => {
-      //合并md5Response.data参数
-      let ajaxData = {
-        data: Object.assign({}, JSON.parse(md5Response), { funcode })
-      };
+    )
+      .then(md5Response => {
+        //合并md5Response.data参数
+        let ajaxData = {
+          data: Object.assign({}, JSON.parse(md5Response), { funcode })
+        };
 
-      //混入请求的数据
-      if (params.request) {
-        //request的参数，可以覆盖md5Response.data数据
-        Object.assign(ajaxData.data, params.request);
-      }
-
-      //发送正式请求
-      unifyAjax(ajaxData).then(response => {
-        console.log(111, response)
-        //返回对象合集
-        if (params.responseType === "[array object]") {
-          // resolve([md5Response, response]);
-        } else {
-          //默认返回请求的
-          resolve(response);
+        //混入请求的数据
+        if (params.request) {
+          //request的参数，可以覆盖md5Response.data数据
+          Object.assign(ajaxData.data, params.request);
         }
-      }).catch(reject);
 
-    }).catch(() => { });
+        // 发送正式请求
+        unifyAjax(ajaxData)
+          .then(response => {
+            console.log(111, response);
+            //返回对象合集
+            if (params.responseType === '[array object]') {
+              // resolve([md5Response, response]);
+            } else {
+              //默认返回请求的
+              resolve(response);
+            }
+          })
+          .catch(reject);
+      })
+      .catch(() => {});
   });
-};
+}
 
 export { md5Ajax, unifyAjax };

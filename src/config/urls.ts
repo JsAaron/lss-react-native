@@ -43,7 +43,7 @@ let PATH = {
    * requestUrl
    * common
    */
-  COMMON: `${lcc}/loginAction!currency.ilf`,
+  COMMON: `${lcc}/loginAction!currencyapp.ilf`,
   /**
    * 加密请求
    */
