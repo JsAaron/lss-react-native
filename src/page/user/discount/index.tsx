@@ -1,8 +1,9 @@
 import React from 'react';
-import {  View } from 'react-native';
+import { View } from 'react-native';
 import { SearchBar } from '@ant-design/react-native';
 import Action from '../../../redux/actions';
 import { connect } from 'react-redux';
+
 
 /**
  * 优惠券页面
@@ -21,9 +22,9 @@ class DiscountApp extends React.Component<any, any> {
   }
 
   componentDidMount() {
-    Promise.all([this.props.getDiscountShowList()]).then(response => {
-      console.log('response', response);
-    });
+    this.props.getDiscountShowList().then((res:any)=>{
+      console.log(res.value)
+    })
   }
 
   onSearchSubmit(e) {}

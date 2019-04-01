@@ -119,7 +119,7 @@ function serviceMd5(params) {
 function unifyAjax(params) {
   return new Promise((resolve, reject) => {
     ajax(params)
-      .then(response => {
+      .then((response: any) => {
         response = JSON.parse(response);
         if (response.retCode == '0000') {
           //统一判断成功
@@ -148,15 +148,14 @@ function unifyAjax(params) {
 function md5Ajax(params) {
   return new Promise((resolve, reject) => {
     const funcode = params.funcode;
+    //请求参数,合并funcode
+    const md5Params = Object.assign(params.encrypt, {
+      funcode
+    });
 
     //加密请求
-    serviceMd5(
-      Object.assign(params.encrypt, {
-        //请求参数,合并funcode
-        funcode
-      })
-    )
-      .then(md5Response => {
+    serviceMd5(md5Params)
+      .then((md5Response: any) => {
         //合并md5Response.data参数
         let ajaxData = {
           data: Object.assign({}, JSON.parse(md5Response), { funcode })
@@ -170,19 +169,10 @@ function md5Ajax(params) {
 
         // 发送正式请求
         unifyAjax(ajaxData)
-          .then(response => {
-            console.log(111, response);
-            //返回对象合集
-            if (params.responseType === '[array object]') {
-              // resolve([md5Response, response]);
-            } else {
-              //默认返回请求的
-              resolve(response);
-            }
-          })
+          .then(resolve)
           .catch(reject);
       })
-      .catch(() => {});
+      .catch(reject);
   });
 }
 
